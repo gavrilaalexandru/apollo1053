@@ -22,5 +22,11 @@ public class Main {
         String csvPathFile = "src/landers.csv";
         List<Lander> landerList = CSVReader.readFromCSV(csvPathFile);
 
+        System.out.println("-------------------------------------------------");
+        landerList.get(2).land();
+        System.out.println(landerList.get(2).getHasLanded());
+
+        System.out.println("-------------------------------------------------");
+
     }
 }

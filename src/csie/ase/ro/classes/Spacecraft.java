@@ -1,6 +1,6 @@
 package csie.ase.ro.classes;
 
-public class Spacecraft {
+public abstract class Spacecraft {
 
     private String name;
     private float weight; // measured in kg
@@ -30,6 +30,8 @@ public class Spacecraft {
     public void setWeight(float weight) {
         this.weight = weight;
     }
+
+    public abstract void land();
 
     @Override
     public String toString() {

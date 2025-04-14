@@ -15,6 +15,12 @@ public class Lander extends Spacecraft {
         this.temperatureReadings = null;
     }
 
+    @Override
+    public void land() {
+        this.hasLanded = true;
+        System.out.println(getName() + " has landed at " + getLandingSite());
+    }
+
     public Lander(String landingSite, boolean hasLanded, int[] temperatureReadings) {
         this.landingSite = landingSite;
         this.hasLanded = hasLanded;
@@ -36,7 +42,7 @@ public class Lander extends Spacecraft {
         this.landingSite = landingSite;
     }
 
-    public boolean isHasLanded() {
+    public boolean getHasLanded() {
         return hasLanded;
     }
 
