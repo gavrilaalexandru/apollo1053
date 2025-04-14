@@ -54,11 +54,10 @@ public class Lander extends Spacecraft {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Lander{");
-        sb.append("landingSite='").append(landingSite).append('\'');
-        sb.append(", hasLanded=").append(hasLanded);
-        sb.append(", temperatureReadings=").append(Arrays.toString(temperatureReadings));
-        sb.append('}');
-        return sb.toString();
+        return "Lander{" +
+                "landingSite='" + landingSite + '\'' +
+                ", hasLanded=" + hasLanded +
+                ", temperatureReadings=" + Arrays.toString(temperatureReadings) +
+                "} " + super.toString();
     }
 }
