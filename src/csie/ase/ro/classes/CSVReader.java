@@ -34,8 +34,7 @@ public class CSVReader {
         } catch (IOException e) {
             System.err.println("Error reading CSV file: " + e.getMessage());
         }
-        System.out.println("Reading complete!");
-        System.out.println("Loaded " + landers.size() + " landers from CSV!");
+        System.out.println("Reading complete! Loaded " + landers.size() + " landers from CSV!");
         return landers;
     }
 }
