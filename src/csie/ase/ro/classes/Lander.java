@@ -1,8 +1,10 @@
 package csie.ase.ro.classes;
 
+import csie.ase.ro.interfaces.TemperatureCalc;
+
 import java.util.Arrays;
 
-public class Lander extends Spacecraft {
+public class Lander extends Spacecraft implements TemperatureCalc {
 
     private String landingSite;
     private boolean hasLanded; // shows if the lander has landed; by default, this should be FALSE
@@ -65,5 +67,15 @@ public class Lander extends Spacecraft {
                 ", hasLanded=" + hasLanded +
                 ", temperatureReadings=" + Arrays.toString(temperatureReadings) +
                 "} " + super.toString();
+    }
+
+    @Override
+    public float calculateAvgTemp() {
+        if (temperatureReadings.length == 0) return 0.0f;
+        float sum = 0.0f;
+        for (int temp : temperatureReadings) {
+            sum += temp;
+        }
+        return sum / temperatureReadings.length;
     }
 }

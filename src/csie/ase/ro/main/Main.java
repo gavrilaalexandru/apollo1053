@@ -27,6 +27,9 @@ public class Main {
         System.out.println(landerList.get(2).getHasLanded());
 
         System.out.println("-------------------------------------------------");
+        System.out.println("L1 has an average temp of " + l1.calculateAvgTemp() + " °C!");
 
+        System.out.println("-------------------------------------------------");
+        
     }
 }
