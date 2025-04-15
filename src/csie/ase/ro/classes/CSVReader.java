@@ -22,7 +22,8 @@ public class CSVReader {
                 if (data.length >= 5) {
                     String name = data[0].trim();
                     float weight = Float.parseFloat(data[1].trim());
-                    String landingSite = data[2].trim() + " - " + data[3].trim();
+                    String landingSite = data[2].trim();
+                    String celestialBody = data[3].trim();
                     String tempData = data[4].trim();
 
                     int[] temperatureReadings = {-9999}; // garbage value so it won't crash the program when it reaches the constructor;
@@ -36,7 +37,7 @@ public class CSVReader {
                         }
                     }
 
-                    Lander lander = new Lander(name, weight, landingSite, false, temperatureReadings);
+                    Lander lander = new Lander(name, weight, landingSite, celestialBody, false, temperatureReadings);
 
                     // I added some temperatures to the .csv file just to make sure the reading part works properly.
                     landers.add(lander);

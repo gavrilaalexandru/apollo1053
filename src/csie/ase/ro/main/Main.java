@@ -13,7 +13,7 @@ public class Main {
         System.out.println("🛰 Mission Control – Apollo1053 has landed!");
 
         System.out.println("-------------------------------------------------");
-        Lander l1 = new Lander("Apollo1", 100000, "Fra Mauro", false, new int[]{10, 12, 15, 19});
+        Lander l1 = new Lander("Apollo1", 100000, "Fra Mauro", "Mars", false, new int[]{10, 12, 15, 19});
         System.out.println(l1);
         l1.setName("Apollo2");
         l1.setTemperatureReadings(new int[]{12, 15, 19, 21});
@@ -27,7 +27,7 @@ public class Main {
 
         System.out.println("-------------------------------------------------");
         landerList.get(2).land();
-        System.out.println(landerList.get(2).getHasLanded());
+        System.out.println(landerList.get(2).isHasLanded());
         landerList.get(4).land();
         landerList.get(0).land();
 
@@ -48,6 +48,7 @@ public class Main {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
         System.out.println("-------------------------------------------------");
         Set<Lander> landerTreeSet = new TreeSet<>(landerList);
         String binaryFile = "src/lander.bin";
@@ -57,10 +58,14 @@ public class Main {
         for (Lander l : moreLanders) {
             System.out.println(l);
         }
+
         System.out.println("-------------------------------------------------");
         Iterator<Lander> it = moreLanders.iterator();
         it.next();
         Lander l3 = it.next();
         System.out.println("The second lightest lander is " + l3 + ".");
+
+        System.out.println("-------------------------------------------------");
+
     }
 }

@@ -14,6 +14,7 @@ public class BinaryReader {
                 String name = dataInputStream.readUTF();
                 float weight = dataInputStream.readFloat();
                 String landingSite = dataInputStream.readUTF();
+                String celestialBody = dataInputStream.readUTF();
                 boolean hasLanded = dataInputStream.readBoolean();
 
                 int tempCount = dataInputStream.readInt();
@@ -23,7 +24,7 @@ public class BinaryReader {
                     temperatures[j] = dataInputStream.readInt();
                 }
 
-                Lander lander = new Lander(name, weight, landingSite, hasLanded, temperatures);
+                Lander lander = new Lander(name, weight, landingSite, celestialBody, hasLanded, temperatures);
                 landerTreeSet.add(lander);
             }
             System.out.println("Reading complete! Loaded " + landerTreeSet.size() + " landers from binary!");

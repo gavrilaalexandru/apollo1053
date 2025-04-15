@@ -13,7 +13,8 @@ public class BinaryWriter {
                 dataOutputStream.writeUTF(l.getName());
                 dataOutputStream.writeFloat(l.getWeight());
                 dataOutputStream.writeUTF(l.getLandingSite());
-                dataOutputStream.writeBoolean(l.getHasLanded());
+                dataOutputStream.writeUTF(l.getCelestialBody());
+                dataOutputStream.writeBoolean(l.isHasLanded());
 
                 int[] temperatures = l.getTemperatureReadings();
                 dataOutputStream.writeInt(temperatures.length);

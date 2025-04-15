@@ -8,14 +8,15 @@ public class CSVWriter {
         try(BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName)))) {
             StringBuilder header = new StringBuilder();
             int count = 0;
-            header.append("Name").append(",").append("LandingSite").append(",").append("AverageTemperature").append(",").append("TemperatureReadings");
+            header.append("Name").append(",").append("LandingSite").append(",").append("CelestialBody").append(",").append("AverageTemperature").append(",").append("TemperatureReadings");
             bufferedWriter.write(header.toString());
             bufferedWriter.newLine();
             for (Lander lander : landers) {
-                if (lander.getHasLanded()) {
+                if (lander.isHasLanded()) {
                     StringBuilder line = new StringBuilder();
                     line.append(lander.getName()).append(",");
                     line.append(lander.getLandingSite()).append(",");
+                    line.append(lander.getCelestialBody()).append(",");
                     line.append(lander.calculateAvgTemp()).append(",");
 
                     if (lander.getTemperatureReadings().length > 0) {
