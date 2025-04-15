@@ -1,6 +1,10 @@
 package csie.ase.ro.main;
 
 import csie.ase.ro.classes.*;
+import csie.ase.ro.util.BinaryReader;
+import csie.ase.ro.util.BinaryWriter;
+import csie.ase.ro.util.CSVReader;
+import csie.ase.ro.util.CSVWriter;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -22,7 +26,7 @@ public class Main {
         System.out.println(weight1);
         System.out.println("-------------------------------------------------");
 
-        String readFromCSV = "src/landers.csv";
+        String readFromCSV = "src/csie/ase/ro/dataFiles/landers.csv";
         List<Lander> landerList = CSVReader.readFromCSV(readFromCSV);
 
         System.out.println("-------------------------------------------------");
@@ -35,11 +39,11 @@ public class Main {
         System.out.println("L1 has an average temp of " + l1.calculateAvgTemp() + " °C!");
 
         System.out.println("-------------------------------------------------");
-        String writeToCSV = "src/landedLanders.csv";
+        String writeToCSV = "src/csie/ase/ro/dataFiles/landedLanders.csv";
         CSVWriter.writeToCSV(landerList, writeToCSV);
 
         System.out.println("-------------------------------------------------");
-        String serializeFile = "src/lander.data";
+        String serializeFile = "src/csie/ase/ro/dataFiles/lander.data";
         try {
             landerList.get(1).serialize(serializeFile);
             Lander l2 = new Lander();
@@ -51,7 +55,7 @@ public class Main {
 
         System.out.println("-------------------------------------------------");
         Set<Lander> landerTreeSet = new TreeSet<>(landerList);
-        String binaryFile = "src/lander.bin";
+        String binaryFile = "src/csie/ase/ro/dataFiles/lander.bin";
         BinaryWriter.writeBinary(binaryFile, landerTreeSet);
 
         Set<Lander> moreLanders = BinaryReader.readBinary(binaryFile);

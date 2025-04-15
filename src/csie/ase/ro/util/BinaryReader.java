@@ -1,4 +1,6 @@
-package csie.ase.ro.classes;
+package csie.ase.ro.util;
+
+import csie.ase.ro.classes.Lander;
 
 import java.io.*;
 import java.util.Set;
