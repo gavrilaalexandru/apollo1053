@@ -1,6 +1,6 @@
-Name,Weight,LandingSite,CelestialBody
-Eagle,1200,Tranquility Base,Moon
-Viking1,900,Chryse Planitia,Mars
-Phoenix,351,Vastitas Borealis,Mars
-InSight,694,Elysium Planitia,Mars
-Huygens,320,Titan,Titan
+Name,Weight,LandingSite,CelestialBody,TemperatureReadings
+Eagle,1200,Tranquility Base,Moon,120;-30;15;42
+Viking1,900,Chryse Planitia,Mars,-60;-55;-58;-59
+Phoenix,351,Vastitas Borealis,Mars,-70;-68;-72
+InSight,694,Elysium Planitia,Mars,-50;-48;-49
+Huygens,320,Titan,Titan,-180;-175;-182
