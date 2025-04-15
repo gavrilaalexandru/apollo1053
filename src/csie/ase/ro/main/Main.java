@@ -1,6 +1,7 @@
 package csie.ase.ro.main;
 
 import csie.ase.ro.classes.CSVReader;
+import csie.ase.ro.classes.CSVWriter;
 import csie.ase.ro.classes.Lander;
 
 import java.util.List;
@@ -19,17 +20,20 @@ public class Main {
         System.out.println(weight1);
         System.out.println("-------------------------------------------------");
 
-        String csvPathFile = "src/landers.csv";
-        List<Lander> landerList = CSVReader.readFromCSV(csvPathFile);
+        String readFromCSV = "src/landers.csv";
+        List<Lander> landerList = CSVReader.readFromCSV(readFromCSV);
 
         System.out.println("-------------------------------------------------");
         landerList.get(2).land();
         System.out.println(landerList.get(2).getHasLanded());
+        landerList.get(4).land();
+        landerList.get(0).land();
 
         System.out.println("-------------------------------------------------");
         System.out.println("L1 has an average temp of " + l1.calculateAvgTemp() + " °C!");
 
         System.out.println("-------------------------------------------------");
-        
+        String writeToCSV = "src/landedLanders.csv";
+        CSVWriter.writeToCSV(landerList, writeToCSV);
     }
 }
