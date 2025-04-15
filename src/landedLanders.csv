@@ -1,4 +1,4 @@
 Name,LandingSite,AverageTemperature,TemperatureReadings
-Eagle,Tranquility Base - Moon,6.0,No readings
-Phoenix,Vastitas Borealis - Mars,9.0,No readings
-Huygens,Titan - Titan,8.6,No readings
+Eagle,Tranquility Base - Moon,36.75,120;-30;15;42
+Phoenix,Vastitas Borealis - Mars,-70.0,-70;-68;-72
+Huygens,Titan - Titan,-179.0,-180;-175;-182
