@@ -128,9 +128,21 @@ public class Lander extends Spacecraft implements TemperatureCalc {
         return Float.compare(getWeight(), o.getWeight());
     }
 
+//    @Override
+//    public int hashCode() {
+//        int hash = 0;
+//        float avgTemp = calculateAvgTemp();
+//        if (celestialBody != null) {
+//            for (char letter : celestialBody.toCharArray()) {
+//                hash = hash + 31 * letter + (int)avgTemp; // don't know how to make this hash code implementation work without making major changes to mission manager class
+//            }                                             // the problem is with avgTemp for different landers with the same celestial body
+//        }
+//        return hash;
+//    }
+
     @Override
     public int hashCode() {
-        return super.hashCode(); // implementeaza
+        return celestialBody != null ? celestialBody.hashCode() : 0;
     }
 
     @Override

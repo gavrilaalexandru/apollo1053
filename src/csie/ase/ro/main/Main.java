@@ -1,16 +1,10 @@
 package csie.ase.ro.main;
 
 import csie.ase.ro.classes.*;
-import csie.ase.ro.util.BinaryReader;
-import csie.ase.ro.util.BinaryWriter;
-import csie.ase.ro.util.CSVReader;
-import csie.ase.ro.util.CSVWriter;
+import csie.ase.ro.util.*;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -70,6 +64,9 @@ public class Main {
         System.out.println("The second lightest lander is " + l3 + ".");
 
         System.out.println("-------------------------------------------------");
+        String csvReportFile = "src/csie/ase/ro/dataFiles/celestialBodyReport.csv";
+        Map<Lander, Integer> missionsPerCelestialBody = MissionManager.missionManager(csvReportFile, landerList);
 
+        System.out.println("-------------------------------------------------");
     }
 }
