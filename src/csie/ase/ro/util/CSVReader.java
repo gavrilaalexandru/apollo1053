@@ -45,10 +45,10 @@ public class CSVReader {
                     landers.add(lander);
                 }
             }
+            System.out.println("Reading complete! Loaded " + landers.size() + " landers from CSV!");
         } catch (IOException e) {
             System.err.println("Error reading CSV file: " + e.getMessage());
         }
-        System.out.println("Reading complete! Loaded " + landers.size() + " landers from CSV!");
         return landers;
     }
 }
