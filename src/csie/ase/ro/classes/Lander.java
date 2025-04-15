@@ -1,7 +1,6 @@
 package csie.ase.ro.classes;
 
 import csie.ase.ro.interfaces.TemperatureCalc;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
 import java.util.Arrays;
@@ -124,7 +123,7 @@ public class Lander extends Spacecraft implements TemperatureCalc {
     }
 
     @Override
-    public int compareTo(@NotNull Spacecraft o) {
+    public int compareTo(Spacecraft o) {
         return Float.compare(getWeight(), o.getWeight());
     }
 
