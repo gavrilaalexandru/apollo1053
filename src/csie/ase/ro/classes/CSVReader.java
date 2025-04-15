@@ -19,15 +19,26 @@ public class CSVReader {
                     }
                 }
                 String[] data = line.split(",");
-                if (data.length >= 4) {
+                if (data.length >= 5) {
                     String name = data[0].trim();
                     float weight = Float.parseFloat(data[1].trim());
                     String landingSite = data[2].trim() + " - " + data[3].trim();
+                    String tempData = data[4].trim();
 
-                    Lander lander = new Lander(name, weight, landingSite, false, null);
+                    int[] temperatureReadings = {-9999}; // garbage value so it won't crash the program when it reaches the constructor;
+                                                        // in case if temperatureData is empty; better than setting it to null
 
-                    // temp reading
+                    if (!tempData.isEmpty()) {
+                        String[] temp = tempData.split(";");
+                        temperatureReadings = new int[temp.length];
+                        for (int i = 0; i < temp.length; i++) {
+                            temperatureReadings[i] = Integer.parseInt(temp[i].trim());
+                        }
+                    }
 
+                    Lander lander = new Lander(name, weight, landingSite, false, temperatureReadings);
+
+                    // I added some temperatures to the .csv file just to make sure the reading part works properly.
                     landers.add(lander);
                 }
             }
