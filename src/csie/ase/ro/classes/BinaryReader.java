@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class BinaryReader {
-    public static Set<Lander> writeBinary(String fileName) {
+    public static Set<Lander> readBinary(String fileName) {
         Set<Lander> landerTreeSet = new TreeSet<Lander>();
         try(DataInputStream dataInputStream = new DataInputStream(new FileInputStream(fileName))) {
             int landerCount = dataInputStream.readInt();

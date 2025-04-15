@@ -52,10 +52,12 @@ public class Main {
         String binaryFile = "src/lander.bin";
         BinaryWriter.writeBinary(binaryFile, landerTreeSet);
 
-        Set<Lander> moreLanders = BinaryReader.writeBinary(binaryFile);
+        Set<Lander> moreLanders = BinaryReader.readBinary(binaryFile);
         for (Lander l : moreLanders) {
             System.out.println(l);
         }
-        
+        System.out.println("-------------------------------------------------");
+
+        System.out.println("The second lightest lander is " + l1 + ".");
     }
 }
