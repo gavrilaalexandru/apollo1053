@@ -1,11 +1,11 @@
 package csie.ase.ro.main;
 
-import csie.ase.ro.classes.CSVReader;
-import csie.ase.ro.classes.CSVWriter;
-import csie.ase.ro.classes.Lander;
+import csie.ase.ro.classes.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,6 +48,14 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("-------------------------------------------------");
+        Set<Lander> landerTreeSet = new TreeSet<>(landerList);
+        String binaryFile = "src/lander.bin";
+        BinaryWriter.writeBinary(binaryFile, landerTreeSet);
 
+        Set<Lander> moreLanders = BinaryReader.writeBinary(binaryFile);
+        for (Lander l : moreLanders) {
+            System.out.println(l);
+        }
+        
     }
 }
