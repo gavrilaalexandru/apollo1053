@@ -22,7 +22,7 @@ public class CSVWriter {
                         for (int i = 0; i < lander.getTemperatureReadings().length; i++) {
                             line.append(lander.getTemperatureReadings()[i]);
                             if (i < lander.getTemperatureReadings().length - 1) {
-                                line.append(",");
+                                line.append(";");
                             }
                         }
                     }
