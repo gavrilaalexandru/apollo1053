@@ -5,6 +5,7 @@ out/
 .idea
 *.iml
 /build
+*.class
 
 ### Eclipse ###
 .apt_generated
