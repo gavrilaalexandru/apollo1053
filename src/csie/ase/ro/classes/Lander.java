@@ -26,14 +26,16 @@ public class Lander extends Spacecraft implements TemperatureCalc {
     public Lander(String landingSite, boolean hasLanded, int[] temperatureReadings) {
         this.landingSite = landingSite;
         this.hasLanded = hasLanded;
-        this.temperatureReadings = temperatureReadings; // change to system.arraycopy
+        this.temperatureReadings = new int[temperatureReadings.length];
+        System.arraycopy(temperatureReadings, 0, this.temperatureReadings, 0, temperatureReadings.length);
     }
 
     public Lander(String name, float weight, String landingSite, boolean hasLanded, int[] temperatureReadings) {
         super(name, weight);
         this.landingSite = landingSite;
         this.hasLanded = hasLanded;
-        this.temperatureReadings = temperatureReadings; // change to system.arraycopy
+        this.temperatureReadings = new int[temperatureReadings.length];
+        System.arraycopy(temperatureReadings, 0, this.temperatureReadings, 0, temperatureReadings.length);
     }
 
     public String getLandingSite() {
@@ -53,11 +55,14 @@ public class Lander extends Spacecraft implements TemperatureCalc {
     }
 
     public int[] getTemperatureReadings() {
-        return temperatureReadings; // change this aswell
+        int[] copy = new int[temperatureReadings.length];
+        System.arraycopy(temperatureReadings, 0, copy, 0, temperatureReadings.length);
+        return copy;
     }
 
     public void setTemperatureReadings(int[] temperatureReadings) {
-        this.temperatureReadings = temperatureReadings; // change this aswell
+        this.temperatureReadings = new int[temperatureReadings.length];
+        System.arraycopy(temperatureReadings, 0, this.temperatureReadings, 0, temperatureReadings.length);
     }
 
     @Override
