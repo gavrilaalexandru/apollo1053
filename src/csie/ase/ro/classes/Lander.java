@@ -1,7 +1,9 @@
 package csie.ase.ro.classes;
 
 import csie.ase.ro.interfaces.TemperatureCalc;
+import org.jetbrains.annotations.NotNull;
 
+import java.io.*;
 import java.util.Arrays;
 
 public class Lander extends Spacecraft implements TemperatureCalc {
@@ -65,6 +67,28 @@ public class Lander extends Spacecraft implements TemperatureCalc {
         System.arraycopy(temperatureReadings, 0, this.temperatureReadings, 0, temperatureReadings.length);
     }
 
+    public void serialize(String fileName) throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream(fileName);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(this);
+        objectOutputStream.close(); // or try with resources
+        System.out.println("Serialize complete!");
+    }
+
+    public void deserialize(String fileName) throws IOException, ClassNotFoundException {
+        FileInputStream fileInputStream = new FileInputStream(fileName);
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+
+        Lander l = (Lander)objectInputStream.readObject();
+        this.landingSite = l.landingSite;
+        this.hasLanded = l.hasLanded;
+        this.setTemperatureReadings(l.getTemperatureReadings());
+        this.setName(l.getName());
+        this.setWeight(l.getWeight()); // spacecraft class has to be serializable for this to work (to get super attr)
+        objectInputStream.close(); // or try with resources
+        System.out.println("Deserialize complete!");
+    }
+
     @Override
     public String toString() {
         return "Lander{" +
@@ -82,5 +106,10 @@ public class Lander extends Spacecraft implements TemperatureCalc {
             sum += temp;
         }
         return sum / temperatureReadings.length;
+    }
+
+    @Override
+    public int compareTo(@NotNull Spacecraft o) {
+        return Float.compare(getWeight(), o.getWeight());
     }
 }

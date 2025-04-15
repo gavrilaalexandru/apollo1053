@@ -4,6 +4,7 @@ import csie.ase.ro.classes.CSVReader;
 import csie.ase.ro.classes.CSVWriter;
 import csie.ase.ro.classes.Lander;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Main {
@@ -35,5 +36,18 @@ public class Main {
         System.out.println("-------------------------------------------------");
         String writeToCSV = "src/landedLanders.csv";
         CSVWriter.writeToCSV(landerList, writeToCSV);
+
+        System.out.println("-------------------------------------------------");
+        String serializeFile = "src/lander.data";
+        try {
+            landerList.get(1).serialize(serializeFile);
+            Lander l2 = new Lander();
+            l2.deserialize(serializeFile);
+            System.out.println(l2);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.out.println("-------------------------------------------------");
+
     }
 }
