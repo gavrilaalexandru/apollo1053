@@ -3,6 +3,7 @@ package csie.ase.ro.main;
 import csie.ase.ro.classes.*;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -57,7 +58,9 @@ public class Main {
             System.out.println(l);
         }
         System.out.println("-------------------------------------------------");
-
-        System.out.println("The second lightest lander is " + l1 + ".");
+        Iterator<Lander> it = moreLanders.iterator();
+        it.next();
+        Lander l3 = it.next();
+        System.out.println("The second lightest lander is " + l3 + ".");
     }
 }
